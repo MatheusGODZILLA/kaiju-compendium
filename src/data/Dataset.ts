@@ -6,7 +6,7 @@ const dataset = [
         height: '50',
         weight: '20,000',
         era: 'Showa',
-        roar: require(''),
+        roar: require('../assets/roars/Godzilla_1954.mp3'),
     },
 ];
 
