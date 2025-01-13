@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, ImageBackground, Text, StyleSheet, Button } from 'react-native';
+import { View, ImageBackground, Image, Text, StyleSheet, Button } from 'react-native';
 
 const background = { uri: 'https://godzilla.com/cdn/shop/files/monsterpedia_hp_desktop.png?v=1689050075&width=768media/Gg7zIt_X0AABxky?format=jpg&name=medium' };
 
@@ -7,7 +7,7 @@ export function Home({ navigation }: any) {
   return (
     <ImageBackground source={background} resizeMode="cover" style={styles.background}>
       <View style={styles.content}>
-        <Text style={styles.title}>Kaiju Compendium</Text>
+        <Image source={require('../../assets/Kaiju Compendium.png')} style={{ width: 350, height: 180 }} />
         <Text style={styles.description}>
           Explore o mundo dos monstros gigantes! Descubra informações detalhadas sobre os Kaijus mais
           icônicos.
