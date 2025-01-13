@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
       overflow: 'hidden',
       borderRadius: 10,
       padding: 5,
-      marginBottom: 15,
+      marginBottom: 5,
       alignItems: 'center',
       shadowColor: '#000',
       shadowOffset: { width: 0, height: 2 },
