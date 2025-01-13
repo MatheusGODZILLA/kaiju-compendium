@@ -1,30 +1,31 @@
-import { Assets as NavigationAssets } from '@react-navigation/elements';
-import { Asset } from 'expo-asset';
-import * as SplashScreen from 'expo-splash-screen';
 import * as React from 'react';
-import { Navigation } from './navigation';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Home } from './navigation/screens/Home';
+import { Monsters } from './navigation/screens/Monsters';
+import { Details } from './navigation/screens/Details';
 
-Asset.loadAsync([
-  ...NavigationAssets,
-  require('./assets/newspaper.png'),
-  require('./assets/bell.png'),
-]);
-
-SplashScreen.preventAutoHideAsync();
+const Stack = createNativeStackNavigator();
 
 export function App() {
   return (
-    <Navigation
-      linking={{
-        enabled: 'auto',
-        prefixes: [
-          // Change the scheme to match your app's scheme defined in app.json
-          'helloworld://',
-        ],
-      }}
-      onReady={() => {
-        SplashScreen.hideAsync();
-      }}
-    />
+    <NavigationContainer>
+      <Stack.Navigator
+        screenOptions={{
+          headerTitleAlign: 'center',
+          headerStyle: {
+            backgroundColor: '#d40000',
+          },
+          headerTintColor: '#fff',
+          headerTitleStyle: {
+            fontWeight: 'bold',
+          },
+        }}
+      >
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="Kaiju" component={Monsters} options={{ title: 'MONSTERPEDIA' }}/>
+        <Stack.Screen name="Detalhes" component={Details}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
