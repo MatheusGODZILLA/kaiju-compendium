@@ -1,24 +1,47 @@
-import { Button, Text } from '@react-navigation/elements';
-import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { View, ImageBackground, Text, StyleSheet, Button } from 'react-native';
 
-export function Home() {
+const background = { uri: 'https://godzilla.com/cdn/shop/files/monsterpedia_hp_desktop.png?v=1689050075&width=768media/Gg7zIt_X0AABxky?format=jpg&name=medium' };
+
+export function Home({ navigation }: any) {
   return (
-    <View style={styles.container}>
-      <Text>Home Screen</Text>
-      <Text>Open up 'src/App.tsx' to start working on your app!</Text>
-      <Button screen="Profile" params={{ user: 'jane' }}>
-        Go to Profile
-      </Button>
-      <Button screen="Settings">Go to Settings</Button>
-    </View>
+    <ImageBackground source={background} resizeMode="cover" style={styles.background}>
+      <View style={styles.content}>
+        <Text style={styles.title}>Kaiju Compendium</Text>
+        <Text style={styles.description}>
+          Explore o mundo dos monstros gigantes! Descubra informações detalhadas sobre os Kaijus mais
+          icônicos.
+        </Text>
+        <Button title="Ver Lista de Kaijus" onPress={() => navigation.navigate('Kaiju')} />
+      </View>
+    </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
+    flex: 1,
+  },
+  content: {
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 10,
+    padding: 20,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  title: {
+    fontSize: 32,
+    fontWeight: 'bold',
+    color: '#f5cb42',
+    marginBottom: 20,
+    textAlign: 'center',
+  },
+  description: {
+    fontSize: 16,
+    color: '#ffffff',
+    textAlign: 'center',
+    marginBottom: 40,
   },
 });
+
+export default Home;
