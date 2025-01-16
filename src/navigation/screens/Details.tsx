@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Text, Image, StyleSheet, ScrollView, View, ImageBackground } from 'react-native';
+import { Text, Image, StyleSheet, ScrollView, View, ImageBackground, Vibration } from 'react-native';
 import { Audio } from 'expo-av';
 import { Accelerometer } from 'expo-sensors';
 import MonsterStats from '../../components/MonsterStats';
@@ -10,6 +10,7 @@ export function Details({ route }: any) {
   const { monster } = route.params;
 
   const playRoar = async () => {
+    Vibration.vibrate(200);
     const { sound } = await Audio.Sound.createAsync(monster.roar);
     await sound.playAsync();
   };
