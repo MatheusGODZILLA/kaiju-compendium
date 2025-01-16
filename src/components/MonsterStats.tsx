@@ -5,10 +5,19 @@ const MonsterStats = ({monster}: any) => {
     return (
         <View style={styles.container}>
           <Text style={styles.title}>Estatísticas</Text>
-          <View style={styles.statsContainer}>
-            <Text style={styles.stat}>Era: {monster.era}</Text>
-            <Text style={styles.stat}>Altura: {monster.height}m</Text>
-            <Text style={styles.stat}>Peso: {monster.weight} Toneladas</Text>
+            <View style={styles.statsContainer}>
+              <View style={styles.statRow}>
+              <Text style={styles.statTitle}>Era:</Text>
+              <Text style={styles.statValue}>{monster.era}</Text>
+            </View>
+            <View style={styles.statRow}>
+              <Text style={styles.statTitle}>Altura:</Text>
+              <Text style={styles.statValue}>{monster.height} Metros</Text>
+            </View>
+            <View style={styles.statRow}>
+              <Text style={styles.statTitle}>Peso:</Text>
+              <Text style={styles.statValue}>{monster.weight} Toneladas</Text>
+            </View>
           </View>
         </View>
       );
@@ -41,10 +50,19 @@ const styles = StyleSheet.create({
       borderTopColor: '#ddd',
       paddingTop: 10,
     },
-    stat: {
-      fontSize: 16,
-      color: '#333',
+    statRow: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
       marginVertical: 5,
-      fontWeight: '500',
+    },
+    statTitle: {
+      fontSize: 15,
+      fontWeight: '600',
+      color: '#333',
+    },
+    statValue: {
+      fontSize: 14,
+      fontWeight: '400',
+      color: '#333',
     },
   });
